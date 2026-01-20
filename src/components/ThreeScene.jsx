@@ -12,10 +12,19 @@ import SolarSystem from '@/components/SolarSystem';
 function ThreeScene() {
     const location = useLocation();
     const isHome = location.pathname === '/';
+    const [isMobile, setIsMobile] = React.useState(window.innerWidth < 768);
+
+    React.useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    const cameraPosition = isMobile ? [0, 40, 50] : [0, 20, 25];
 
     return (
         <Canvas
-            camera={{ position: [0, 20, 25], fov: 45 }}
+            camera={{ position: cameraPosition, fov: 45 }}
             gl={{
                 antialias: true,
                 toneMapping: THREE.ACESFilmicToneMapping,

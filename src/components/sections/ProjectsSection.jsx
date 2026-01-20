@@ -20,15 +20,15 @@ const projects = [
 
 function ProjectsSection({ onCraterDive }) {
     return (
-        <div className="cosmic-panel p-8">
+        <div className="cosmic-panel p-4 md:p-8">
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex items-center gap-4 mb-6"
             >
-                <Rocket className="w-12 h-12 text-red-400" />
+                <Rocket className="w-10 h-10 md:w-12 md:h-12 text-red-400" />
                 <h2
-                    className="font-orbitron text-4xl font-bold text-white"
+                    className="font-orbitron text-3xl md:text-4xl font-bold text-white"
                     style={{
                         textShadow: '0 0 20px rgba(231, 76, 60, 0.5)'
                     }}

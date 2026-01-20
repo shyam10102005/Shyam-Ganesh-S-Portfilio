@@ -220,11 +220,23 @@ function Planet({ index, name, color, orbitRadius, orbitSpeed, size, type, onSna
     return (
         <group
             ref={groupRef}
-            onPointerDown={(e) => { e.stopPropagation(); setIsDragging(true); e.target.setPointerCapture(e.pointerId); }}
-            onPointerUp={(e) => { setIsDragging(false); e.target.releasePointerCapture(e.pointerId); }}
+            onPointerDown={(e) => {
+                e.stopPropagation();
+                e.target.setPointerCapture(e.pointerId);
+                setIsDragging(true);
+            }}
+            onPointerUp={(e) => {
+                setIsDragging(false);
+                e.target.releasePointerCapture(e.pointerId);
+            }}
             onPointerOver={() => { document.body.style.cursor = 'grab'; setIsHovered(true); }}
             onPointerOut={() => { document.body.style.cursor = 'auto'; setIsHovered(false); }}
         >
+            {/* Invisible Hit Area for easier grabbing */}
+            <mesh visible={false}>
+                <sphereGeometry args={[size * 1.5, 16, 16]} />
+                <meshBasicMaterial />
+            </mesh>
             {renderPlanetGeometry()}
 
             {/* Label always facing camera */}

@@ -1,14 +1,28 @@
 {
     "name": "web-app",
-    "type": "module",
     "version": "0.0.0",
     "private": true,
+    "description": "An immersive 3D personal portfolio built with React, Three.js, and Tailwind CSS. Features an interactive solar system navigation, realistic planet simulations, and smooth framer-motion animations to showcase skills and projects in a cosmic setting.",
+    "homepage": "https://shyam10102005.github.io/Shyam-Ganesh-S-Portfilio",
+    "bugs": {
+        "url": "https://github.com/shyam10102005/Shyam-Ganesh-S-Portfilio/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/shyam10102005/Shyam-Ganesh-S-Portfilio.git"
+    },
+    "license": "ISC",
+    "author": "",
+    "type": "module",
+    "main": "postcss.config.js",
     "scripts": {
         "dev": "vite --host :: --port 3000",
-        "build": "node tools/generate-llms.js || true && vite build",
+        "build": "vite build",
         "preview": "vite preview --host :: --port 3000",
         "lint": "eslint . --quiet",
-        "lint:warn": "eslint ."
+        "lint:warn": "eslint .",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d dist"
     },
     "dependencies": {
         "@radix-ui/react-alert-dialog": "^1.1.4",
@@ -53,6 +67,7 @@
         "eslint-plugin-react": "^7.37.3",
         "eslint-plugin-react-hooks": "^5.1.0",
         "eslint-plugin-react-refresh": "^0.4.26",
+        "gh-pages": "^6.3.0",
         "globals": "^15.14.0",
         "postcss": "^8.4.49",
         "tailwindcss": "^3.4.17",
