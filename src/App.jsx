@@ -72,11 +72,13 @@ function App() {
                 </div>
 
                 {/* 3. 3D Solar System (Top Layer) - Planets overlay text */}
-                <div className={`absolute inset-0 ${location.pathname === '/' ? 'z-20 pointer-events-auto' : 'z-0 pointer-events-none opacity-0'}`}>
-                    <div className={location.pathname === '/' ? 'w-full h-full' : 'hidden'}>
-                        <ThreeScene />
+                {location.pathname === '/' && (
+                    <div className="absolute inset-0 z-20 pointer-events-auto">
+                        <div className="w-full h-full">
+                            <ThreeScene key="home-scene" />
+                        </div>
                     </div>
-                </div>
+                )}
 
                 <Toaster />
             </div>
